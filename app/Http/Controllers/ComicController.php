@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comic;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
@@ -11,16 +12,13 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = config('comics');
+        $comics = Comic::all();
         foreach ($comics as &$comic) {
             $comic['artists'] = implode($comic['artists']);
             $comic['writers'] = implode($comic['writers']);
         };
-
         return view('comics.index', compact('comics'));
     }
-
-
     /**
      * Show the form for creating a new resource.
      */
@@ -28,7 +26,6 @@ class ComicController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -36,13 +33,12 @@ class ComicController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comic $comic)
     {
-        //
+        return view('comics.show', compact('comic'));
     }
 
     /**
@@ -52,7 +48,6 @@ class ComicController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      */
@@ -60,7 +55,6 @@ class ComicController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      */
