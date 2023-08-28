@@ -51,3 +51,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="inputs">
+                    <input type="submit" value="CREA">
+                    <input type="reset" value="CANELLA">
+                </div>
+            </form>
+        </div>
+    </main>
+@endsection

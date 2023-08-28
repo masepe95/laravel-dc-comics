@@ -12,6 +12,9 @@
     <p>Date: {{ $comic->sale_date }}</p>
     <p>Artists: {{ $comic->artists }}</p>
     <p class="mb-5">Writers: {{ $comic->writers }}</p>
-    <a href="{{ route('comics.index') }}">Back to comic list</a>
+    <div class="options">
+        <a class="left-link" href="{{ route('comics.index') }}">Back to comics list</a>
+        <a class="right-link" href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+    </div>
 </main>
 @endsection

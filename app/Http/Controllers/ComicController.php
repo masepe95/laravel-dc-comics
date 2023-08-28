@@ -35,7 +35,7 @@ class ComicController extends Controller
         $comic = new Comic($data);
         $comic->save();
 
-        return to_route('comics.index', $comic->id);
+        return to_route('comics.show', $comic->id);
     }
     /**
      * Display the specified resource.
@@ -48,9 +48,9 @@ class ComicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
     /**
      * Update the specified resource in storage.
