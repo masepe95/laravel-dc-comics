@@ -13,12 +13,10 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        foreach ($comics as &$comic) {
-            $comic['artists'] = implode($comic['artists']);
-            $comic['writers'] = implode($comic['writers']);
-        };
+
         return view('comics.index', compact('comics'));
     }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -26,6 +24,7 @@ class ComicController extends Controller
     {
         return view('comics.create');
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -37,6 +36,7 @@ class ComicController extends Controller
 
         return to_route('comics.show', $comic->id);
     }
+
     /**
      * Display the specified resource.
      */
@@ -52,6 +52,7 @@ class ComicController extends Controller
     {
         return view('comics.edit', compact('comic'));
     }
+
     /**
      * Update the specified resource in storage.
      */
@@ -62,6 +63,7 @@ class ComicController extends Controller
 
         return to_route('comics.show', $comic->id);
     }
+
     /**
      * Remove the specified resource from storage.
      */
