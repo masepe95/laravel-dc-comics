@@ -15,6 +15,19 @@
     <div class="options">
         <a class="left-link" href="{{ route('comics.index') }}">Back to comics list</a>
         <a class="right-link" href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+        <form id="delete-form" action="{{ route('comics.destroy', $comic) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete Comic</button>
+        </form>
     </div>
 </main>
+<script>
+    const deleteForm = document.getElementById('delete-form');
+    deleteForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const hasConfirmed = confirm('Are you sure you want to delete this comic?');
+        if (hasConfirmed) deleteForm.submit()
+    })
+</script>
 @endsection

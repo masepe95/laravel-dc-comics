@@ -3,6 +3,13 @@
 @section('main-content')
     <main>
         <ul>
+            <div id="alert-delete">
+                @if (session('delete'))
+                    <div class="alert alert-success text-success">
+                        {{ session('delete') }}
+                    </div>
+                @endif
+            </div>
             @forelse ($comics as $comic)
                 <li>
                     <h4>{{ $comic['title'] }}</h4>
