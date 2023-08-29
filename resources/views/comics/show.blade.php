@@ -14,7 +14,7 @@
     <p class="mb-5">Writers: {{ $comic->writers }}</p>
     <div class="options">
         <a class="left-link" href="{{ route('comics.index') }}">Back to comics list</a>
-        <a class="right-link" href="{{ route('comics.edit', $comic) }}">Edit comic</a>
+        <a class="right-link btn btn-primary" href="{{ route('comics.edit', $comic) }}">Edit comic</a>
         <form id="delete-form" action="{{ route('comics.destroy', $comic) }}" method="POST">
             @csrf
             @method('DELETE')
